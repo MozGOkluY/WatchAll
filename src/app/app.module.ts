@@ -1,23 +1,20 @@
-import { RoutingModule } from './shared/routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UiModule } from './ui/ui.module';
+import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import { StarRatingComponent } from './star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    StarRatingComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    UiModule,
-    RoutingModule,
-    RouterModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

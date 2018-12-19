@@ -1,21 +1,24 @@
-import { SeriesService } from './../shared/series.service';
+import { ShowService } from './../shared/show.service';
 import { Component, OnInit } from '@angular/core';
-import { SeriesModel } from '../series-model';
+import { ShowModel } from '../models/show.model';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
-  series: SeriesModel[];
+  top5: ShowModel[] = [];
 
-  constructor(private serv: SeriesService ) {
-    this.series = this.serv.getAllSeries();
-   }
+  constructor(private serv: ShowService) {
+
+  }
 
   ngOnInit() {
+    this.serv.getTop100().subscribe(x => {
+      this.top5 = x;
+    });
   }
 
   ratingComponentClick(rating: number) {

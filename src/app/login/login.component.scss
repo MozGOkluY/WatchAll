@@ -1,0 +1,78 @@
+.profile-img-card {
+  width: 50%;
+  height: 16vh;
+  margin: 0 auto 1vw;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.sizer {
+  margin-top: 10%;
+  width: 25%;
+  -webkit-transition: width 1s;
+  transition: width 1s;
+}
+
+.btn.btn-signin {
+  font-weight: 700;
+  font-size: 1rem;
+  height: 5vh;
+  -o-transition: all 0.218s;
+  -moz-transition: all 0.218s;
+  -webkit-transition: all 0.218s;
+  transition: all 0.218s;
+}
+
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.btn.btn-signin:focus {
+  background-color: rgb(12, 97, 33);
+}
+
+.forgot-password {
+  color: rgb(104, 145, 162);
+}
+
+.forgot-password:hover,
+.forgot-password:active,
+.forgot-password:focus {
+  color: rgb(12, 97, 33);
+}
+
+@media screen and (max-width: 1200px) {
+  .sizer {
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .sizer {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .sizer {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .sizer {
+    width: 55%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .sizer {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sizer {
+    width: 70%;
+  }
+}

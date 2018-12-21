@@ -63,6 +63,37 @@ export class AuthService extends BasicService {
             );
     }
 
+
+    registerUser(userProfile: UserModel): Observable<any> {
+        const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        const url = environment.apiUrl + 'api/v1/tokens/register';
+        return this.http.post(url, userProfile, { headers: headers })
+            .pipe(
+                map((b: any) => {
+                    this.storeNewToken(b.token);
+
+                    return {
+                        token: b,
+                        statusCode: 200,
+                    };
+                }),
+                catchError(err => {
+                    console.log(err);
+                    if (err instanceof HttpErrorResponse) {
+                        this.handleError(err);
+                        return of({
+                            token: '',
+                            statusCode: err.status,
+                        });
+                    }
+
+                    this.handleError(err);
+                    return of(null);
+                })
+            );
+    }
+
+
     logout(): void {
         this.removeToken();
     }

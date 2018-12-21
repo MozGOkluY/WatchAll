@@ -1,3 +1,21 @@
-<p>
-  register works!
-</p>
+<div class="container sizer">
+  <div class="card card-container p-5">
+    <div class="back">
+      <button type="button" (click)="toLogin()" class="close">
+        <span aria-hidden="true">&#xe079;</span>
+      </button>
+    </div>
+    <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+    <img class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    <p class="profile-name-card">Register new User</p>
+    <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="register()">
+      <input type="text" class="form-control m-1" placeholder="Login" required autofocus [formControl]="login">
+      <input type="email" class="form-control m-1" placeholder="Email address" required [formControl]="email">
+      <input type="password" class="form-control m-1" placeholder="Password" required [formControl]="password"
+        autocomplete="false">
+      <input type="text" class="form-control m-1" placeholder="First name" required [formControl]="fName">
+      <input type="text" class="form-control m-1" placeholder="Last name" required [formControl]="lName">
+      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Register</button>
+    </form><!-- /form -->
+  </div><!-- /card-container -->
+</div><!-- /container -->

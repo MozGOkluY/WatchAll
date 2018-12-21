@@ -31,10 +31,6 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authService.loginUser(this.loginForm.value.userName, this.loginForm.value.password).subscribe((resp) => {
-      this.authService.notificationMessage = '';
-
-      console.log(resp);
-
       if (resp) {
         switch (resp.statusCode) {
           case 0:
@@ -64,5 +60,9 @@ export class LoginComponent implements OnInit {
       }
     });
 
+  }
+
+  register() {
+    this.router.navigate(['/register']);
   }
 }

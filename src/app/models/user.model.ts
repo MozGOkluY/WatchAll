@@ -1,4 +1,8 @@
 export class UserModel {
     id: string;
-    name: string;
+    login: string;
+    email: string;
+    password: string;
+    firstName: string;
+    lastName: string;
 }

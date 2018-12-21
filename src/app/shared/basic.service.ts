@@ -67,6 +67,7 @@ export class BasicService {
     }
 
     storeNewToken(token: string) {
+        console.log('afs');
         this.removeToken();
         localStorage.setItem(this.tokenKey, token);
     }

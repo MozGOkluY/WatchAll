@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/home']);
+    }
     this.userName = new FormControl('', Validators.required);
     this.password = new FormControl('', Validators.required);
 
@@ -30,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginUser(this.loginForm.value.userName, this.loginForm.value.password).subscribe((resp) => {
       this.authService.notificationMessage = '';
 
-    console.log(resp);
+      console.log(resp);
 
       if (resp) {
         switch (resp.statusCode) {
@@ -42,11 +45,7 @@ export class LoginComponent implements OnInit {
             break;
 
           case 400:
-            break;
-
           case 403:
-            break;
-
           case 500:
           case 501:
           case 502:
@@ -59,9 +58,6 @@ export class LoginComponent implements OnInit {
           case 509:
           case 510:
           case 511:
-            break;
-
-
           default:
             break;
         }

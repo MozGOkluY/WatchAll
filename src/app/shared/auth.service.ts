@@ -38,14 +38,13 @@ export class AuthService extends BasicService {
             'username': userName,
             'password': password
         };
-        console.log(url);
         return this.http.post(url, body, { headers: headers })
             .pipe(
                 map((b: any) => {
                     this.storeNewToken(b.token);
 
                     return {
-                        token: b.token,
+                        token: b,
                         statusCode: 200,
                     };
                 }),

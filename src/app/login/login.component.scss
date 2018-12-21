@@ -1,6 +1,6 @@
 .profile-img-card {
-  width: 50%;
-  height: 16vh;
+  width: 40%;
+  height: 30%;
   margin: 0 auto 1vw;
   display: block;
   -moz-border-radius: 50%;
@@ -41,38 +41,8 @@
   color: rgb(12, 97, 33);
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
   .sizer {
-    width: 35%;
-  }
-}
-
-@media screen and (max-width: 1100px) {
-  .sizer {
-    width: 45%;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .sizer {
-    width: 50%;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .sizer {
-    width: 55%;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .sizer {
-    width: 60%;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .sizer {
-    width: 70%;
+    width: 100%;
   }
 }

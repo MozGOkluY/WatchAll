@@ -1,7 +1,7 @@
 import { BasicService } from './basic.service';
 import { Injectable } from '@angular/core';
-import { UserModel } from '../models/user.model';
-import { environment } from '../../environments/environment';
+import { UserModel } from '../../shared/models/user.model';
+import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';

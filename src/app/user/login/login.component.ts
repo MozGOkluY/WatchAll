@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../shared/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['']);
     }
     this.userName = new FormControl('', Validators.required);
     this.password = new FormControl('', Validators.required);
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
             break;
 
           case 200:
-            this.router.navigate(['/home']);
+            this.router.navigate(['']);
             break;
 
           case 400:

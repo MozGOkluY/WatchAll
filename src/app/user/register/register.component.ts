@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../shared/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
-import { UserModel } from '../models/user.model';
+import { UserModel } from '../../shared/models/user.model';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     if (this.authService.isLoggedIn()) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['']);
     }
 
     this.login = new FormControl('', Validators.required);
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
             break;
 
           case 200:
-            this.router.navigate(['/home']);
+            this.router.navigate(['']);
             break;
 
           case 400:

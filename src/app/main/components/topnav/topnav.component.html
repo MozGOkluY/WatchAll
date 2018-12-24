@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-  <a class="navbar-brand" href="#">WatchAll</a>
+  <a class="navbar-brand" [routerLink]="['']">WatchAll</a>
   <button class="navbar-toggler" data-toggle="collapse" data-target="#toggle">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,7 +7,10 @@
   <div class="navbar-collapse collapse" id="toggle">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" [routerLink]="['/lists']">My lists</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/profile']">My profile</a>
       </li>
     </ul>
     <form class="form-inline d-flex dropdown">

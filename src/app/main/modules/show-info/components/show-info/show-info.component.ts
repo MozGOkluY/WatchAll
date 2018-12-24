@@ -1,7 +1,7 @@
-import { ShowService } from './../shared/show.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ShowModel } from '../models/show.model';
+import { ShowService } from 'src/app/shared/services/show.service';
+import { ShowModel } from 'src/app/shared/models/show.model';
 
 @Component({
   selector: 'app-show-info',
@@ -18,7 +18,6 @@ export class ShowInfoComponent implements OnInit {
       this.showService.getShowById(params.id).subscribe(x => {
         this.show = x;
       });
-      console.log(this.show);
     });
   }
 

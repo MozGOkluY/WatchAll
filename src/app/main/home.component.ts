@@ -1,5 +1,5 @@
 import { ShowService } from './../shared/show.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { ShowModel } from '../models/show.model';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
@@ -12,15 +12,15 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   top5: ShowModel[] = [];
-
+  searchStr: string;
+  lastPattern = '';
+  message: string;
   constructor(private serv: ShowService, private authServ: AuthService, private router: Router) {
 
   }
 
   ngOnInit() {
-    this.serv.getTop100().subscribe(x => {
-      this.top5 = x;
-    });
+    this.authServ.getUserRole();
   }
 
   logout() {
@@ -28,7 +28,13 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  ratingComponentClick(rating: number) {
-
+  findIt() {
+    if (!this.searchStr || this.searchStr.trim() === this.lastPattern.trim()) {
+      return;
+    }
+    this.serv.getFiltered(this.searchStr).subscribe(x => {
+      this.top5 = x.shows;
+    });
+    this.lastPattern = this.searchStr;
   }
 }

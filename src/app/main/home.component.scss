@@ -1,0 +1,48 @@
+.result-link {
+  color: #4f7593;
+}
+
+.result-link .media-body {
+  font-size: 16px;
+  color: gray;
+}
+
+.result-link .media-heading {
+  font-size: 15px;
+  font-weight: 400;
+  color: #4f7593;
+}
+
+.result-link:hover,
+.result-link:hover .media-heading,
+.result-link:hover .media-body {
+  text-decoration: none;
+  color: #4f7593
+}
+
+.result-link .media-left {
+  width: 30%;
+}
+
+.result-link .media-object {
+  width: 100%;
+}
+
+.result-entry+.result-entry {
+  border-top: 1px solid #ddd;
+}
+
+.top-keyword {
+  margin: 3px 0 0;
+  font-size: 12px;
+  font-family: Arial;
+}
+
+.top-keyword a {
+  font-size: 12px;
+  font-family: Arial;
+}
+
+.top-keyword a:hover {
+  color: rgba(0, 0, 0, 0.7);
+}

@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { RegisterComponent } from './register/register.component';
+import { ShowInfoComponent } from './show-info/show-info.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    ShowInfoComponent,
   ],
   imports: [
     BrowserModule,

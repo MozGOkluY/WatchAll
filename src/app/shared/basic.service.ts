@@ -19,6 +19,17 @@ export class BasicService {
         return result;
     }
 
+    getUserId(): string {
+        let result = '';
+        const token = this.getAuthToken();
+
+        if (token.length > 0) {
+            const jwt = this.getDecodedJwt();
+            result = jwt['sub'];
+        }
+        return result;
+    }
+
     getUserRole(): string {
         let result = '';
         const token = this.getAuthToken();

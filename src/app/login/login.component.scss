@@ -1,6 +1,6 @@
 .profile-img-card {
-  width: 30%;
-  height: 20%;
+  width: 60%;
+  height: 40%;
   margin: 0 auto 1vw;
   display: block;
   -moz-border-radius: 50%;
@@ -9,8 +9,8 @@
 }
 
 .sizer {
-  margin-top: 10%;
-  width: 25%;
+  margin-top: 5%;
+  width: 30%;
   -webkit-transition: width 1s;
   transition: width 1s;
 }
@@ -41,8 +41,13 @@
   color: rgb(12, 97, 33);
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1200px) {
   .sizer {
     width: 100%;
+  }
+
+  .profile-img-card {
+    width: 30%;
+    height: 20%;
   }
 }

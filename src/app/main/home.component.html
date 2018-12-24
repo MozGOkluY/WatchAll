@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+  <a class="navbar-brand" href="#">WatchAll</a>
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#toggle">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse collapse" id="toggle">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <form class="form-inline d-flex dropdown">
+      <input class="form-control form-control-sm" type="text" placeholder="Search" id="menu1" data-toggle="dropdown"
+        [(ngModel)]="searchStr" name="searchStr" (keyup)="findIt()" autocomplete="off">
+      <button class="btn btn-outline-success btn-sm m-1" type="submit">Search</button>
+      <ul class="dropdown-menu w-100" role="menu" aria-labelledby="menu1">
+        <li *ngFor="let item of top5" role="presentation">
+          <a [routerLink]="['/show', item.id]" routerLinkActive="router-link-active" class="result-link">
+            <div class="border-bottom border-top">
+              <div class="media m-1">
+                <div class="media-left mr-1">
+                  <img src="{{item.imageMedium}}" class="media-object">
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">{{item.name}}</h4>
+                  <p>{{item.seasonsIds.length}} seasons</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </form>
+    <button class="btn btn-info ml-3" (click)="logout()">Logout</button>
+  </div>
+</nav>

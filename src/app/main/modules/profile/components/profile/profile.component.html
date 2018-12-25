@@ -16,7 +16,7 @@
         <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span>
           {{userProfile.createdDate | date: 'dd/MM/yyyy'}}</li>
         <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong>Real name</strong></span> Joseph Doe</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Real name</strong></span> {{userProfile.firstName}} {{userProfile.lastName}}</li>
 
       </ul>
 

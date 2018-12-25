@@ -20,7 +20,7 @@
       <ul class="dropdown-menu w-100" role="menu" aria-labelledby="menu1">
         <li *ngFor="let item of top5" role="presentation">
           <a [routerLink]="['/show', item.id]" routerLinkActive="router-link-active" class="result-link">
-            <div class="border-bottom border-top">
+            <div class="border-bottom">
               <div class="media m-1">
                 <div class="media-left mr-1">
                   <img src="{{item.imageMedium}}" class="media-object">

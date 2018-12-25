@@ -1,3 +1,5 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import * as fromRoot from '../../../../../state/app.state';
@@ -9,13 +11,14 @@ import { UserModel } from 'src/app/shared/models/user.model';
 @Component({
   selector: 'app-profile-shell',
   templateUrl: './profile-shell.component.html',
-  styles: []
+  styles: [],
+  animations: []
 })
 export class ProfileShellComponent implements OnInit {
 
   userProfile$: Observable<UserModel>;
   notifSub: Subscription;
-  constructor(private store: Store<fromRoot.IAppState>) { }
+  constructor(private store: Store<fromRoot.IAppState>, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.store.dispatch(new userActions.LoadUserInfo);
@@ -23,8 +26,8 @@ export class ProfileShellComponent implements OnInit {
     this.userProfile$ = this.store.pipe(select(fromUser.getUserInfo));
     this.notifSub = this.store.pipe(select(fromUser.getNotification)).subscribe(x => {
       if (x && x.length > 0) {
-        console.log('not', x);
-
+        this.toastr.success(x, 'Info');
+        this.store.dispatch(new userActions.ClearNotification());
       }
     });
   }

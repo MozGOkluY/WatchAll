@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './modules/home/home.module';
 import { MainRoutingModule } from './main-routing.module';
 import { NgModule } from '@angular/core';
@@ -5,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MainShellComponent } from './main-shell.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TopnavComponent } from './components/topnav/topnav.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,7 @@ import { TopnavComponent } from './components/topnav/topnav.component';
     MainRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HomeModule
+    HomeModule,
   ],
   bootstrap: [
     MainShellComponent

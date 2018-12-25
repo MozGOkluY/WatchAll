@@ -17,8 +17,8 @@ export class ProfileComponent implements OnInit, OnChanges {
   userForm: FormGroup;
   login: FormControl;
   phone: FormControl;
-  fName: FormControl;
-  lName: FormControl;
+  firstName: FormControl;
+  lastName: FormControl;
   email: FormControl;
   city: FormControl;
 
@@ -31,16 +31,16 @@ export class ProfileComponent implements OnInit, OnChanges {
   initForm() {
     this.login = new FormControl(this.userProfile.login);
     this.phone = new FormControl(this.userProfile.phone);
-    this.fName = new FormControl(this.userProfile.firstName);
-    this.lName = new FormControl(this.userProfile.lastName);
+    this.firstName = new FormControl(this.userProfile.firstName);
+    this.lastName = new FormControl(this.userProfile.lastName);
     this.email = new FormControl(this.userProfile.email);
     this.city = new FormControl(this.userProfile.city);
 
     this.userForm = new FormGroup({
-      userName: this.login,
+      login: this.login,
       phone: this.phone,
-      fName: this.fName,
-      lName: this.lName,
+      firstName: this.firstName,
+      lastName: this.lastName,
       email: this.email,
       city: this.city
     });

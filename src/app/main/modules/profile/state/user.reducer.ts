@@ -57,7 +57,7 @@ export function reducer(state = initialState, action: UserActions): IUserState {
                 notification: action.payload
             };
 
-        case UserActionTypes.UpdateUserInfoFail:
+        case UserActionTypes.ClearNotification:
             return {
                 ...state,
                 notification: ''

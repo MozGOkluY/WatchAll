@@ -5,4 +5,8 @@ export class UserModel {
     password: string;
     firstName: string;
     lastName: string;
+    role: number;
+    phone: string;
+    city: string;
+    createdDate: Date;
 }

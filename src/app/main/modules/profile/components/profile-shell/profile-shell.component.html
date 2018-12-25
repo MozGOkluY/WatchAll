@@ -1,1 +1,1 @@
-<app-profile [userProfile]="userProfile$ | async"></app-profile>
+<app-profile [userProfile]="userProfile$ | async" (saveUser)="saveUser($event)"></app-profile>

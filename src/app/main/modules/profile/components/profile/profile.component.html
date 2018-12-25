@@ -1,3 +1,111 @@
-<p>
-  profile works!
-</p>
+<hr>
+<div class="container bootstrap snippet">
+  <div class="row">
+    <div class="col-sm-10">
+      <h1>Hello, {{userProfile.login}}</h1>
+    </div>
+    <div class="col-sm-2">
+      <a class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png"></a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+
+      <ul class="list-group mb-4">
+        <li class="list-group-item text-muted">Profile</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span>
+          {{userProfile.createdDate | date: 'dd/MM/yyyy'}}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Last seen</strong></span> Yesterday</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Real name</strong></span> Joseph Doe</li>
+
+      </ul>
+
+      <ul class="list-group">
+        <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span> 125</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span> 13</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span> 37</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span> 78</li>
+      </ul>
+
+    </div>
+    <!--/col-3-->
+    <div class="col-sm-8">
+
+      <div>
+        <div>
+          <form class="form" [formGroup]="userForm" (ngSubmit)="save()">
+
+            <div class="form-group">
+              <div class="col-xs-6">
+                <label for="login">
+                  <h4>Login</h4>
+                </label>
+                <input type="text" class="form-control" name="login" id="login" placeholder="Login" [formControl]="login"
+                  title="Enter your first name if any.">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-xs-6">
+                <label for="first_name">
+                  <h4>First name</h4>
+                </label>
+                <input type="text" class="form-control" name="fName" id="first_name" placeholder="First name"
+                  [formControl]="fName" title="Enter your first name if any.">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-xs-6">
+                <label for="last_name">
+                  <h4>Last name</h4>
+                </label>
+                <input type="text" class="form-control" name="lName" id="last_name" [formControl]="lName" placeholder="Last name"
+                  title="enter your last name if any.">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-xs-6">
+                <label for="phone">
+                  <h4>Phone</h4>
+                </label>
+                <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter phone" [formControl]="phone"
+                  title="enter your phone number if any.">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-xs-6">
+                <label for="email">
+                  <h4>Email</h4>
+                </label>
+                <input type="email" class="form-control" name="email" id="email" [formControl]="email" placeholder="you@email.com"
+                  title="enter your email.">
+              </div>
+            </div>
+            <div class="form-group">
+
+              <div class="col-xs-6">
+                <label for="email">
+                  <h4>Location</h4>
+                </label>
+                <input type="email" class="form-control" id="location" [formControl]="city" name="city" placeholder="Enter your city"
+                  title="enter a location">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-xs-12">
+                <br>
+                <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                <button class="btn btn-lg" type="button" (click)="reset()"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

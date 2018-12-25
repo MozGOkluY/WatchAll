@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 import * as fromRoot from '../../../../../state/app.state';
 import * as fromUser from '../../state';
 import * as userActions from '../../state/user.actions';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { UserModel } from 'src/app/shared/models/user.model';
 
 @Component({
@@ -14,12 +14,23 @@ import { UserModel } from 'src/app/shared/models/user.model';
 export class ProfileShellComponent implements OnInit {
 
   userProfile$: Observable<UserModel>;
+  notifSub: Subscription;
   constructor(private store: Store<fromRoot.IAppState>) { }
 
   ngOnInit() {
     this.store.dispatch(new userActions.LoadUserInfo);
 
     this.userProfile$ = this.store.pipe(select(fromUser.getUserInfo));
+    this.notifSub = this.store.pipe(select(fromUser.getNotification)).subscribe(x => {
+      if (x && x.length > 0) {
+        console.log('not', x);
+
+      }
+    });
+  }
+
+  saveUser(userModel: UserModel) {
+    this.store.dispatch(new userActions.UpdateUserInfo(userModel));
   }
 
 }

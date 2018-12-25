@@ -40,7 +40,7 @@ export class TopnavComponent implements OnInit {
 
     this.showList = false;
     this.serv.getFiltered(this.searchStr).subscribe(x => {
-      this.top5 = x.shows.map;
+      this.top5 = x.shows;
       this.showList = true;
     });
     this.lastPattern = this.searchStr;

@@ -1,3 +1,18 @@
-<div>
-  works
+<div class="jumbotron jumbotron-fluid">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-4 fig">
+        <img class="img-fluid rounded" src="{{currentShow.imageMedium}}">
+      </div>
+      <div class="col-sm-8 show-info">
+        <div class="show-name">{{currentShow.name}}</div>
+        <div class="show-alias-name" *ngIf="currentShow.description">{{currentShow.description}}</div>
+        <div class="show-alias-name" *ngIf="!currentShow.description">Нет описания</div>
+      </div>
+      <div class="row">
+      </div>
+    </div>
+  </div>
+
 </div>

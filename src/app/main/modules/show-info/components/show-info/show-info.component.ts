@@ -1,6 +1,4 @@
-import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { ShowService } from 'src/app/shared/services/show.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { ShowModel } from 'src/app/shared/models/show.model';
 
 @Component({
@@ -10,15 +8,12 @@ import { ShowModel } from 'src/app/shared/models/show.model';
 })
 export class ShowInfoComponent implements OnInit {
 
-  constructor(private router: ActivatedRoute, private showService: ShowService) { }
+  @Input() currentShow: ShowModel;
 
-  show: ShowModel;
+  constructor() { }
+
   ngOnInit() {
-    this.router.params.subscribe(params => {
-      this.showService.getShowById(params.id).subscribe(x => {
-        this.show = x;
-      });
-    });
+
   }
 
 }

@@ -1,0 +1,27 @@
+.fig {
+  text-align: left;
+}
+
+.show-name {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 120%;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.show-alias-name {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 575px) {
+  .fig {
+    padding: 2%;
+    text-align: center;
+  }
+
+  .show-info {
+    padding: 2%;
+    text-align: center;
+  }
+}

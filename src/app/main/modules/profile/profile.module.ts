@@ -18,7 +18,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     StoreModule.forFeature('user', reducer),
     EffectsModule.forFeature([UserEffects]),
-
   ],
 })
 export class ProfileModule { }

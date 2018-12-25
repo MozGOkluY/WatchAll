@@ -1,3 +1,4 @@
+import { ShowModel } from './../models/show.model';
 import { BasicService } from './basic.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -17,7 +18,7 @@ export class ShowService extends BasicService {
     return this.httpClient.get(`${this.apiUrl}shows/find?name=${name}`);
   }
 
-  getShowById(id: string): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}shows/${id}`);
+  getShowById(id: string): Observable<ShowModel> {
+    return this.httpClient.get<ShowModel>(`${this.apiUrl}shows/${id}`);
   }
 }

@@ -1,24 +1,24 @@
 import { ShowModel } from './../models/show.model';
 import { BasicService } from './basic.service';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShowService extends BasicService {
-  private apiUrl = 'http://localhost:6001/api/v1/';
 
   constructor(private httpClient: HttpClient) {
     super();
   }
 
-  getFiltered(name: string): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}shows/find?name=${name}`);
+  getFiltered(name: string): Observable<ShowModel[]> {
+    return this.httpClient.get<ShowModel[]>(`${environment.apiUrl}api/v1/shows/find?name=${name}&count=5`);
   }
 
   getShowById(id: string): Observable<ShowModel> {
-    return this.httpClient.get<ShowModel>(`${this.apiUrl}shows/${id}`);
+    return this.httpClient.get<ShowModel>(`${environment.apiUrl}api/v1/shows/${id}`);
   }
 }

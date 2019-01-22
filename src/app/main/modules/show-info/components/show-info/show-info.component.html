@@ -1,18 +1,67 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container-fluid">
-
-    <div class="row">
-      <div class="col-sm-4 fig">
-        <img class="img-fluid rounded" src="{{currentShow.imageMedium}}">
-      </div>
-      <div class="col-sm-8 show-info">
-        <div class="show-name">{{currentShow.name}}</div>
-        <div class="show-alias-name" *ngIf="currentShow.description">{{currentShow.description}}</div>
-        <div class="show-alias-name" *ngIf="!currentShow.description">Нет описания</div>
-      </div>
+<div class="main-container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container-fluid">
       <div class="row">
+        <div class="col-sm-3 show-image">
+          <img class="img-fluid rounded" src="{{currentShow.imageMedium}}">
+        </div>
+        <div class="col-sm-6 show-info">
+          <div class="show-name mt-2">{{currentShow.name}}</div>
+          <div class="genres d-flex align-items-center">
+            Жанры:
+            <div class="genre ml-1" *ngFor="let genre of currentShow.genres">
+              <button class="btn btn-link">{{genre.name}}</button>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+          <div class="rating p-2 d-flex">
+            <div class="mark">8.1</div>
+            <div class="new-mark"></div>
+          </div>
+          <div class="divider"></div>
+
+          <div class="show-description mt-2" *ngIf="currentShow.description" [innerHTML]="currentShow.description"></div>
+          <div class="show-description mt-2" *ngIf="!currentShow.description">Нет описания</div>
+
+        </div>
+        <div class="col-sm-3">
+          <div>Канал: {{currentShow.chanel.name}}</div>
+          <div>Статус: {{currentShow.status}}</div>
+        </div>
       </div>
     </div>
   </div>
 
+  <div class="show-content">
+    <div *ngFor="let season of currentShow.seasons; let i = index">
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="heading-{{i}}">
+            <h5 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapse-' + i"
+                aria-expanded="true" [attr.aria-controls]="'collapse-' + i">
+                Сезон №{{season.orderId}}
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapse-{{i}}" class="collapse" [attr.aria-labelledby]="'heading-' + i" data-parent="#accordionExample">
+            <div class="card-body">
+              <div *ngFor="let episode of season.episodes">
+                <div class="episode-container p-2">
+                  <div class="identifier mr-2">
+                    {{season.orderId}}x{{episode.orderNumber}}
+                  </div>
+                  <div class="episode-name">{{episode.name}}</div>
+                  <div class="status"><i class="fa fa-eye" aria-hidden="true"></i></div>
+                </div>
+                <div class="divider"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

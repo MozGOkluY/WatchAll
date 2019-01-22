@@ -23,7 +23,6 @@ export class ShowInfoShellComponent implements OnInit {
     this.router.params.subscribe(params => {
       this.store.dispatch(new showActions.LoadShowInfo(params.id));
     });
-
     this.currentShow$ = this.store.pipe(select(fromUser.getShowInfo));
 
   }

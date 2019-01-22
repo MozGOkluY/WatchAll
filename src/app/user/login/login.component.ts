@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     if (this.authService.isLoggedIn()) {
       this.router.navigate(['']);
     }
+
     this.userName = new FormControl('', Validators.required);
     this.password = new FormControl('', Validators.required);
 

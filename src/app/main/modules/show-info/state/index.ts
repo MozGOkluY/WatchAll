@@ -6,7 +6,7 @@ import * as fromUser from './show.reducer';
 // This is required because products are lazy loaded.
 // So the reference to ProductState cannot be added to app.state.ts directly.
 export interface IAppState extends fromRoot.IAppState {
-    state: fromUser.IShowState;
+    show: fromUser.IShowState;
 }
 
 // Selector functions

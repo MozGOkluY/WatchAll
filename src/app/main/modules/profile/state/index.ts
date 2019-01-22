@@ -6,7 +6,7 @@ import * as fromUser from './user.reducer';
 // This is required because products are lazy loaded.
 // So the reference to ProductState cannot be added to app.state.ts directly.
 export interface IAppState extends fromRoot.IAppState {
-    state: fromUser.IUserState;
+    user: fromUser.IUserState;
 }
 
 // Selector functions
@@ -16,7 +16,6 @@ export const getUserInfo = createSelector(
     getUserFeatureState,
     state => state.currentUser
 );
-
 
 export const getNotification = createSelector(
     getUserFeatureState,

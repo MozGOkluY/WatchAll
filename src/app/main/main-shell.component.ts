@@ -1,5 +1,7 @@
-import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as fromUser from './modules/profile/state';
+import * as userActions from './modules/profile/state/user.actions';
 
 @Component({
   selector: 'app-main-shell',
@@ -9,9 +11,10 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class MainShellComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<fromUser.IAppState>) { }
 
   ngOnInit() {
+    this.store.dispatch(new userActions.LoadUserInfo);
   }
 
 }

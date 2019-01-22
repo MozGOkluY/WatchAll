@@ -10,13 +10,15 @@ export enum UserActionTypes {
     UpdateUserInfo = '[User] Update profile',
     UpdateUserInfoSuccess = '[User] Update profile Success',
     UpdateUserInfoFail = '[User] Update profile Fail',
-    ShowNotification = '[Nofit] Showed notification',
-    ClearNotification = '[Nofit] Cleared notification',
+    ShowNotification = '[Notif] Showed notification',
+    ClearNotification = '[Notif] Cleared notification',
 }
 
 // Action Creators
 export class LoadUserInfo implements Action {
     readonly type = UserActionTypes.LoadUserInfo;
+
+    constructor() { }
 }
 
 export class LoadUserInfoSuccess implements Action {

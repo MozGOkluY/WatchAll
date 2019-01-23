@@ -9,10 +9,18 @@ import { ShowModel } from 'src/app/shared/models/show.model';
 export class ShowInfoComponent implements OnChanges {
 
   @Input() currentShow: ShowModel;
-
+  currentUserStatus = 0;
+  episodesCount = 0;
   constructor() { }
 
   ngOnChanges() {
+    this.episodesCount = this.currentShow.seasons.map(x => x.episodes.length).reduce(function (sum, current) {
+      return sum + current;
+    }, 0);
+  }
+
+  changeStatus(status: number) {
+    this.currentUserStatus = status;
   }
 
 }

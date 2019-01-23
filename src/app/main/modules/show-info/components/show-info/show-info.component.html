@@ -16,7 +16,7 @@
 
           <div class="divider"></div>
           <div class="rating p-2 d-flex">
-            <div class="mark">8.1</div>
+            <div class="mark">{{currentShow.rating}}</div>
             <div class="new-mark"></div>
           </div>
           <div class="divider"></div>
@@ -25,9 +25,41 @@
           <div class="show-description mt-2" *ngIf="!currentShow.description">Нет описания</div>
 
         </div>
-        <div class="col-sm-3">
-          <div>Канал: {{currentShow.chanel.name}}</div>
-          <div>Статус: {{currentShow.status}}</div>
+        <div class="col-sm-3 p-3">
+          <div class="mt-2">Канал: {{currentShow.chanel.name}}</div>
+          <div class="mt-2">Статус: {{currentShow.status}}</div>
+
+          <div class="mt-2">
+            Длительность:
+            <span class="badge badge-pill badge-success ml-1">{{currentShow.duration}}</span>
+          </div>
+
+          <div class="mt-2">
+            Дата премьеры:
+            <span class="badge badge-pill badge-primary ml-1">{{currentShow.premiereDate | date: 'MM/dd/yyyy'}}</span>
+          </div>
+
+          <div class="btn-group d-flex mt-2" role="group" aria-label="status-group">
+            <button type="button" [class.active]="currentUserStatus === 0" class="btn btn-secondary" title="Посмотрел"
+              (click)="changeStatus(0)"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></button>
+            <button type="button" [class.active]="currentUserStatus === 1" class="btn btn-secondary" title="Буду смотреть"
+              (click)="changeStatus(1)"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i></button>
+            <button type="button" [class.active]="currentUserStatus === 2" class="btn btn-secondary" title="Отложил"
+              (click)="changeStatus(2)"><i class="fa fa-calendar-minus-o" aria-hidden="true"></i></button>
+            <button type="button" [class.active]="currentUserStatus === 3" class="btn btn-secondary" title="Смотрю"
+              (click)="changeStatus(3)"><i class="fa fa-calendar" aria-hidden="true"></i></button>
+            <button type="button" [class.active]="currentUserStatus === 4" class="btn btn-secondary" title="Не смотрю"
+              (click)="changeStatus(4)"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></button>
+          </div>
+          <div class="mt-2">
+            Сезонов:
+            <span class="badge badge-pill badge-primary ml-1">{{currentShow.seasons.length}}</span>
+          </div>
+
+          <div class="mt-2">
+            Серий:
+            <span class="badge badge-pill badge-primary ml-1">{{episodesCount}}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -36,15 +68,21 @@
   <div class="show-content">
     <div *ngFor="let season of currentShow.seasons; let i = index">
       <div class="accordion" id="accordionExample">
-        <div class="card">
-          <div class="card-header" id="heading-{{i}}">
-            <h5 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapse-' + i"
-                aria-expanded="true" [attr.aria-controls]="'collapse-' + i">
-                Сезон №{{season.orderId}}
-              </button>
-            </h5>
-          </div>
+        <div class="card m-0 p-0">
+          <button class="btn btn-light w-100 h-100 m-0 p-0 rounded-0" type="button" data-toggle="collapse"
+            [attr.data-target]="'#collapse-' + i" aria-expanded="true" [attr.aria-controls]="'collapse-' + i">
+            <div class="card-header" id="heading-{{i}}">
+              <div class="header">
+                <div class="season-header">
+                  Сезон №{{season.orderId}}
+                </div>
+                <div class="spacer"></div>
+                <div class="episode-counter">Серий: <span class="badge badge-warning ml-1">
+                    {{season.episodes.length}}
+                  </span></div>
+              </div>
+            </div>
+          </button>
 
           <div id="collapse-{{i}}" class="collapse" [attr.aria-labelledby]="'heading-' + i" data-parent="#accordionExample">
             <div class="card-body">

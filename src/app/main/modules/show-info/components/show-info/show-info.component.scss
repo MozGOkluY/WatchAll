@@ -59,6 +59,10 @@
   flex-grow: 1;
 }
 
+.collapsed {
+  visibility: collapse;
+}
+
 @media screen and (max-width: 575px) {
   .show-name {
     text-align: center;

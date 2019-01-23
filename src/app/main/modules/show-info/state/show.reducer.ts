@@ -14,7 +14,7 @@ const initialState: IShowState = {
         genres: [],
         status: 0,
         duration: 0,
-        premierDate: '',
+        premiereDate: '',
         showUrl: '',
         airDay: 0,
         airTime: '',

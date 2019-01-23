@@ -1,3 +1,5 @@
+import { UserShowModel } from './user-show-models/user.show.model';
+
 export class UserModel {
     id: string;
     login: string;
@@ -9,4 +11,5 @@ export class UserModel {
     phone: string;
     city: string;
     createdDate: Date;
+    shows: UserShowModel[];
 }

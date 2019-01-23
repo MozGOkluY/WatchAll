@@ -18,7 +18,8 @@ const initialState: IUserState = {
         createdDate: new Date,
         role: 2,
         phone: '',
-        city: ''
+        city: '',
+        shows: []
     },
     notification: ''
 };

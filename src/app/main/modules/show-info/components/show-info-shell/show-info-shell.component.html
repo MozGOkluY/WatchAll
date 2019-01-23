@@ -1,1 +1,1 @@
-<app-show-info [currentShow]="currentShow$ | async"></app-show-info>
+<app-show-info [currentShow]="currentShow$ | async" [userProfile]="userProfile$ | async" (showChange)="onShowChange($event)"></app-show-info>

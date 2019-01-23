@@ -8,7 +8,7 @@ export class ShowModel {
     genres: GenreModel[];
     status: number;
     duration: number;
-    premierDate: string;
+    premiereDate: string;
     showUrl: string;
     airDay: number;
     airTime: string;

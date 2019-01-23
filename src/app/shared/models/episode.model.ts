@@ -7,4 +7,5 @@ export class EpisodeModel {
     duration: string;
     description: string;
     seasonId: string;
+    isChecked: boolean;
 }
